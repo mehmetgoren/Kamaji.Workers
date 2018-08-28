@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PuppeteerWorker\PuppeteerWorker.csproj" />
+    <ProjectReference Include="..\WebPageHtmlSourceWorker\WebPageHtmlSourceWorker.csproj" />
+    <ProjectReference Include="..\WebPageLinksWorker\WebPageLinksWorker.csproj" />
+    <ProjectReference Include="..\WebPageScreenshotWorker\WebPageScreenshotWorker.csproj" />
+    <ProjectReference Include="..\WebPageSpider\WebPageSpider.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Kamaji.Worker">
+      <HintPath>..\..\Kamaji\builds\netstandard2.0\Kamaji.Worker.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="script.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
