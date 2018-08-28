@@ -7,13 +7,31 @@
     using System.Diagnostics;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Collections;
 
     static class Program
     {
         static async Task Main(string[] args)
         {
+            using (Kamaji.Worker.IWorker worker = new ProcessMonitoringWorker.Worker())
+            {
+                var result = await worker.Run(ConsoleObserver.Instance, "http://www.cursedhardware.com/", null, null);
+
+                IEnumerable<object> list = result.Result as IEnumerable<object>;
+                if (null != list)
+                    (new List<object>(list)).ForEach(Console.WriteLine);
+                else
+                    Console.WriteLine(result.Result);
+
+                Console.ReadKey();
+            }
+        }
+
+
+        static async Task SpiderTest()
+        {
             FakeScanRepository rep = new FakeScanRepository();
-            
+
 
             using (Kamaji.Worker.IWorker worker = new WebPageSpider.Worker())
             {
@@ -51,7 +69,6 @@
             Console.WriteLine();
             Console.ReadKey();
         }
-
 
         static async Task SimpleOnes()
         {
