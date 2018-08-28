@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebPageHtmlSourceWorker", "WebPageHtmlSourceWorker\WebPageHtmlSourceWorker.csproj", "{BFD78660-3460-4AB5-8219-444E94492967}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Worker Implementation", "Worker Implementation", "{FBDC1CD1-8F6E-472A-9E3F-2716B99221FF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Puppeteer", "Puppeteer", "{FBDC1CD1-8F6E-472A-9E3F-2716B99221FF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebPageLinksWorker", "WebPageLinksWorker\WebPageLinksWorker.csproj", "{9D1715A7-8981-4A3C-9815-E1925DE50E50}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebPageScreenshotWorker", "WebPageScreenshotWorker\WebPageScreenshotWorker.csproj", "{ECBE784D-9621-4C6E-A8C8-8EE0AD001413}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPageSpider", "WebPageSpider\WebPageSpider.csproj", "{9A464E24-9E6F-4A80-B558-4DA488FB8CE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebPageSpider", "WebPageSpider\WebPageSpider.csproj", "{9A464E24-9E6F-4A80-B558-4DA488FB8CE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
