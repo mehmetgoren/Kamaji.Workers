@@ -7,7 +7,7 @@
     using System.Diagnostics;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Collections;
+
 
     static class Program
     {
@@ -92,7 +92,7 @@
 
                 Console.WriteLine(html.Result);
 
-                File.WriteAllBytes("g:\\fuck.png", html.Result as byte[]);
+                File.WriteAllBytes("g:\\website_screenshot.png", html.Result as byte[]);
 
                 Console.ReadKey();
             }
