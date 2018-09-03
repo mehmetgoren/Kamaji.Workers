@@ -21,7 +21,7 @@
         {
             using (HttpClient client = new HttpClient())
             {
-                client.Timeout = TimeSpan.FromHours(3);
+                client.Timeout = TimeSpan.FromMinutes(2);
 
                 Uri uri = new Uri(this.Host + "/" + url);
                 using (HttpResponseMessage response = await client.GetAsync(uri, CancellationToken.None))
@@ -38,7 +38,7 @@
         {
             using (HttpClient client = new HttpClient())
             {
-                client.Timeout = TimeSpan.FromHours(3);
+                client.Timeout = TimeSpan.FromMinutes(2);
 
                 Uri uri = new Uri(this.Host + "/" + url);
 

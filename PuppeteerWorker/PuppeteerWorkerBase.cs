@@ -154,8 +154,8 @@
             public void KillPrecessTree(Process process)
             {
                 var pi = TaskManagerInfo.GetTaskManegerInfos().FirstOrDefault(p => p.PortNumber == Port.ToString());
-                Process nodeItSelfProcess = Process.GetProcessById(pi.PID);
-                nodeItSelfProcess?.Kill();
+                Process nodeProcess = Process.GetProcessById(pi.PID);
+                nodeProcess?.Kill();
 
 
                 process.Kill();//şu an için böyle ama linux ve windows' da bu yapı geliştirilsin çünkü kill etmiyor

@@ -1,4 +1,4 @@
-﻿namespace Powershell.Json
+﻿namespace Windows.Powershell.Json
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@
     using Newtonsoft.Json.Converters;
 
 
-    public partial class Welcome
+    internal partial class Welcome
     {
         [JsonProperty("BasePriority")]
         public long BasePriority { get; set; }
@@ -211,7 +211,7 @@
         public NounName NounName { get; set; }
     }
 
-    public partial class MainModule
+    internal partial class MainModule
     {
         [JsonProperty("ModuleName")]
         public string ModuleName { get; set; }
@@ -238,7 +238,7 @@
         public object Container { get; set; }
     }
 
-    public partial class SafeHandle
+    internal partial class SafeHandle
     {
         [JsonProperty("IsInvalid")]
         public bool IsInvalid { get; set; }
@@ -247,7 +247,7 @@
         public bool IsClosed { get; set; }
     }
 
-    public partial class StartInfo
+    internal partial class StartInfo
     {
         [JsonProperty("Verb")]
         public string Verb { get; set; }
@@ -322,12 +322,12 @@
 
     public enum Thread { SystemDiagnosticsProcessThread };
 
-    public partial class Welcome
+    internal partial class Welcome
     {
         public static Welcome[] FromJson(string json) => JsonConvert.DeserializeObject<Welcome[]>(json, Powershell.Json.Converter.Settings);
     }
 
-    public static class Serialize
+    internal static class Serialize
     {
         public static string ToJson(this Welcome[] self) => JsonConvert.SerializeObject(self, Powershell.Json.Converter.Settings);
     }
