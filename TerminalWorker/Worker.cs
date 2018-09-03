@@ -18,7 +18,7 @@
             ITerminal terminal = CreateTerminal();
             string result = await terminal.Run(asset, args);
 
-            observer.Notify("TerminalWorker", "Ok.", null);
+            observer.Notify("TerminalWorker", "Ok.", args);
 
             return result;
         }
