@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Dollars\Dollars.csproj" />
     <ProjectReference Include="..\ProcessMonitoringWorker\ProcessMonitoringWorker.csproj" />
     <ProjectReference Include="..\PuppeteerWorker\PuppeteerWorker.csproj" />
     <ProjectReference Include="..\WebPageHtmlSourceWorker\WebPageHtmlSourceWorker.csproj" />
