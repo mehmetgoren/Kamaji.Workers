@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebPageSpider", "WebPageSpi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProcessMonitoringWorker", "ProcessMonitoringWorker\ProcessMonitoringWorker.csproj", "{8E0C52B8-64A1-4DF1-846C-14EB760F4DE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerminalWorker", "TerminalWorker\TerminalWorker.csproj", "{F96BCA08-79B5-4066-9CE7-83E410AB3CD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TerminalWorker", "TerminalWorker\TerminalWorker.csproj", "{F96BCA08-79B5-4066-9CE7-83E410AB3CD6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Disabled", "Disabled", "{11FEBC5F-F24A-487C-BACB-C392797D2886}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,7 @@ Global
 		{9D1715A7-8981-4A3C-9815-E1925DE50E50} = {FBDC1CD1-8F6E-472A-9E3F-2716B99221FF}
 		{ECBE784D-9621-4C6E-A8C8-8EE0AD001413} = {FBDC1CD1-8F6E-472A-9E3F-2716B99221FF}
 		{9A464E24-9E6F-4A80-B558-4DA488FB8CE0} = {FBDC1CD1-8F6E-472A-9E3F-2716B99221FF}
+		{8E0C52B8-64A1-4DF1-846C-14EB760F4DE5} = {11FEBC5F-F24A-487C-BACB-C392797D2886}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D35DD1C-A58E-433A-80DE-38055D7EF8F4}

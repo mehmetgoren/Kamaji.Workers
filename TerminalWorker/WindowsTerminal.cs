@@ -21,6 +21,7 @@ namespace TerminalWorker
                 using (Process process = Process.Start(startInfo))
                 {
                     result = (await process.StandardOutput.ReadToEndAsync())?.Trim();
+                    process.Kill();
                 }
             }
 

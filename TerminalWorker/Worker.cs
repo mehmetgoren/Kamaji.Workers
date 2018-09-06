@@ -1,10 +1,9 @@
 ﻿namespace TerminalWorker
 {
+    using Kamaji.Worker;
     using System;
     using System.Runtime.InteropServices;
     using System.Threading.Tasks;
-    using Kamaji.Worker;
-
 
     public sealed class Worker : WorkerBase
     {
