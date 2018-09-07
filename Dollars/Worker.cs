@@ -11,7 +11,7 @@
         public override async Task<object> Run_Internal(ProxyObserver observer, RestClient http, string asset, IScanRepository repository, object args)
         {
             List<Result> result = await http.GetAsync<List<Result>>("getDollars");
-            observer.Notify("Dollars", "got dollar values", null);
+            observer?.Notify("Dollars", "got dollar values", null);
             return result;
         }
 

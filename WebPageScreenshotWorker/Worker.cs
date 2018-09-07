@@ -21,6 +21,7 @@
         public override async Task<object> Run_Internal(ProxyObserver observer, RestClient http, string asset, IScanRepository repository, object args)
         {
             var img = await http.GetAsync<JsonObject>($"screenshot?site={asset}");
+            observer?.Notify("WebpageScreenshot", "got screnshot", null);
             return null != img ? img.screenshot?.data : null;
         }
     }

@@ -60,7 +60,7 @@
                 .Append($"node {ScriptFileName}.js").AppendLine().Append("pause");
             File.WriteAllText(batFileName, batScript.ToString());
 
-            var terminal = CreateTerminal();
+            var terminal = this.CreateTerminal();
             _nodeJsProcess = terminal.StartTerminalAndExecute(scriptLocation, Port);
             _isInitialized = true;
             _nodeJsProcess.WaitForExit();
@@ -78,15 +78,15 @@
 
                 File.WriteAllText(jsPath, js);
 
-                CreateTerminal().KillPrecessTree(_nodeJsProcess);
+                this.CreateTerminal().KillPrecessTree(_nodeJsProcess);
                 //_nodeJsProcess.Kill();
             }
         }
 
 
-        private static IPuppeteerTerminal CreateTerminal()
+        private IPuppeteerTerminal CreateTerminal()
         {
-            return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? new WindowsPuppeteerTerminal() : throw new NotSupportedException();
+            return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? new WindowsPuppeteerTerminal(this._observer) : throw new NotSupportedException();
         }
 
 
@@ -113,9 +113,10 @@
             }
         }
 
-
+        private IObserver _observer;
         public Task<WorkerResult> Run(IObserver observer, string asset, IScanRepository repository, object args)
         {
+            this._observer = observer;
             return this.ExecuteSafely(() =>
             {
                 var http = new RestClient($"http://{Utility.GetIpv4Address()}:{Port}");
@@ -137,6 +138,13 @@
 
         private sealed class WindowsPuppeteerTerminal : IPuppeteerTerminal
         {
+            private IObserver Observer { get; }
+
+            public WindowsPuppeteerTerminal(IObserver observer)
+            {
+                this.Observer = observer;
+            }
+
             public Process StartTerminalAndExecute(string scriptLocation, int port)
             {
                 var processInfo = new ProcessStartInfo($@"{scriptLocation}start.bat");
@@ -153,15 +161,26 @@
 
             public void KillPrecessTree(Process process)
             {
-                var pi = TaskManagerInfo.GetTaskManegerInfos().FirstOrDefault(p => p.PortNumber == Port.ToString());
-                if (pi != null)
+                var list = TaskManagerInfo.GetTaskManegerInfos().Where(p => p.PortNumber == Port.ToString());
+                if (list != null && list.Any())
                 {
-                    Process nodeProcess = Process.GetProcessById(pi.PID);
-                    nodeProcess?.Kill();
+                    foreach (var pi in list)
+                    {
+                        try
+                        {
+
+                            Process nodeProcess = Process.GetProcessById(pi.PID);
+                            nodeProcess?.Kill();
+                        }
+                        catch(Exception ex) { this.Observer?.Notify(this.GetType().Name, ex.Message, ex); }
+                    }
                 }
 
-
-                process?.Kill();//şu an için böyle ama linux ve windows' da bu yapı geliştirilsin çünkü kill etmiyor
+                try
+                {
+                    process?.Kill();//şu an için böyle ama linux ve windows' da bu yapı geliştirilsin çünkü kill etmiyor.
+                }
+                catch(Exception ex) { this.Observer?.Notify(this.GetType().Name, ex.Message, ex); }
             }
 
 
@@ -176,7 +195,6 @@
                     {
                         using (Process p = new Process())
                         {
-
                             ProcessStartInfo ps = new ProcessStartInfo();
                             ps.Arguments = "-a -n -o";
                             ps.FileName = "netstat.exe";
