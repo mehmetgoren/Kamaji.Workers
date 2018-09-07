@@ -170,7 +170,7 @@
             {
                 internal static List<TaskManagerInfo> GetTaskManegerInfos()
                 {
-                    var Ports = new List<TaskManagerInfo>();
+                    var ports = new List<TaskManagerInfo>();
 
                     try
                     {
@@ -209,7 +209,7 @@
                                 if (tokens.Length > 4 && (tokens[1].Equals("UDP") || tokens[1].Equals("TCP")))
                                 {
                                     string localAddress = Regex.Replace(tokens[2], @"\[(.*?)\]", "1.1.1.1");
-                                    Ports.Add(new TaskManagerInfo
+                                    ports.Add(new TaskManagerInfo
                                     {
                                         PID = tokens[1] == "UDP" ? Convert.ToInt16(tokens[4]) : Convert.ToInt16(tokens[5]),
                                         Protocol = localAddress.Contains("1.1.1.1") ? String.Format("{0}v6", tokens[1]) : String.Format("{0}v4", tokens[1]),
@@ -224,13 +224,15 @@
                     {
                         Console.WriteLine(ex.Message);
                     }
-                    return Ports;
+
+                    return ports;
                 }
                 private static string LookupProcess(int pid)
                 {
                     string procName;
                     try { procName = Process.GetProcessById(pid).ProcessName; }
                     catch (Exception) { procName = "-"; }
+
                     return procName;
                 }
 
