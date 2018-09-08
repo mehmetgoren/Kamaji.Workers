@@ -16,19 +16,38 @@
             this.Host = host ?? throw new ArgumentNullException(nameof(host));
         }
 
+        private static readonly TimeSpan _timeout = TimeSpan.FromMinutes(1);
 
+        private static readonly JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings
+        {
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+        };
+
+        //private static readonly Type StringType = typeof(String);
         public virtual async Task<T> GetAsync<T>(string url)
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                client.Timeout = TimeSpan.FromMinutes(2);
-
-                Uri uri = new Uri(this.Host + "/" + url);
-                using (HttpResponseMessage response = await client.GetAsync(uri, CancellationToken.None))
+                using (HttpClient client = new HttpClient())
                 {
-                    string json = await response.Content.ReadAsStringAsync();
-                    return String.IsNullOrEmpty(json) ? default(T) : JsonConvert.DeserializeObject<T>(json);
+                    client.Timeout = _timeout;
+
+                    Uri uri = new Uri(this.Host + "/" + url);
+                    using (HttpResponseMessage response = await client.GetAsync(uri, CancellationToken.None))
+                    {
+                        string json = await response.Content.ReadAsStringAsync();
+                        //if (typeof(T) == StringType)
+                        //{
+                        //    object temp = json;
+                        //    return (T)temp;
+                        //}
+                        return String.IsNullOrEmpty(json) ? default(T) : JsonConvert.DeserializeObject<T>(json, _jsonSerializerSettings);
+                    }
                 }
+            }
+            catch(Exception)
+            {
+                throw;
             }
         }
 
@@ -36,19 +55,26 @@
 
         public virtual async Task<T> PostAsync<T>(string url, object data)
         {
-            using (HttpClient client = new HttpClient())
+            try
             {
-                client.Timeout = TimeSpan.FromMinutes(2);
-
-                Uri uri = new Uri(this.Host + "/" + url);
-
-                var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
-
-                using (HttpResponseMessage response = await client.PostAsync(uri, content, CancellationToken.None))
+                using (HttpClient client = new HttpClient())
                 {
-                    string json = await response.Content.ReadAsStringAsync();
-                    return String.IsNullOrEmpty(json) ? default(T) : JsonConvert.DeserializeObject<T>(json);
+                    client.Timeout = _timeout;
+
+                    Uri uri = new Uri(this.Host + "/" + url);
+
+                    var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+
+                    using (HttpResponseMessage response = await client.PostAsync(uri, content, CancellationToken.None))
+                    {
+                        string json = await response.Content.ReadAsStringAsync();
+                        return String.IsNullOrEmpty(json) ? default(T) : JsonConvert.DeserializeObject<T>(json);
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
