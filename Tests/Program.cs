@@ -13,6 +13,19 @@
     {
         static async Task Main(string[] args)
         {
+            string json = "";
+            using (Kamaji.Worker.IWorker worker = new NmapWorker.Worker())
+            {
+                var result = await worker.Run(ConsoleObserver.Instance, "-PS 127.0.0.1", null, null);
+                json = result.Result?.ToString();
+            }
+
+            Console.WriteLine(json);
+        }
+
+
+        static async Task DollarsTest()
+        {
             //using (Kamaji.Worker.IWorker worker = new WebPageLinksWorker.Worker())
             //{
             //    await worker.SetupEnvironment();
@@ -27,7 +40,7 @@
             CancellationTokenSource t = new CancellationTokenSource();
 
 
-           _=Task.Run(async () =>
+            _ = Task.Run(async () =>
             {
                 using (Kamaji.Worker.IWorker worker = new Dollars.Worker())
                 {

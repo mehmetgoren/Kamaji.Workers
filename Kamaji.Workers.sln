@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TerminalWorker", "TerminalW
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Disabled", "Disabled", "{11FEBC5F-F24A-487C-BACB-C392797D2886}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dollars", "Dollars\Dollars.csproj", "{92CA8B72-C540-4ABE-8C1B-1F71410E79BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dollars", "Dollars\Dollars.csproj", "{92CA8B72-C540-4ABE-8C1B-1F71410E79BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NmapWorker", "NmapWorker\NmapWorker.csproj", "{279A15C5-F04E-4394-B6C2-8B801D41C5B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{92CA8B72-C540-4ABE-8C1B-1F71410E79BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92CA8B72-C540-4ABE-8C1B-1F71410E79BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92CA8B72-C540-4ABE-8C1B-1F71410E79BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{279A15C5-F04E-4394-B6C2-8B801D41C5B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{279A15C5-F04E-4394-B6C2-8B801D41C5B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{279A15C5-F04E-4394-B6C2-8B801D41C5B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{279A15C5-F04E-4394-B6C2-8B801D41C5B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
