@@ -15,9 +15,9 @@
             string LocateExecutable()
             {
                 string location = Path.GetDirectoryName(this.GetType().Assembly.Location);
-                string upLocation = Path.GetFullPath(Path.Combine(location, @"..\"));
+               // string upLocation = Path.GetFullPath(Path.Combine(location, @"..\")); no need a prereq.
 
-                return upLocation + "//nmap//nmap.exe";
+                return location + "//nmap//nmap.exe";
                 //string path = Environment.GetEnvironmentVariable("path");
                 //string[] folders = path.Split(';');
 
