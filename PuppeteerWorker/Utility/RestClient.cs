@@ -23,7 +23,7 @@
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore
         };
 
-        //private static readonly Type StringType = typeof(String);
+        private static readonly Type StringType = typeof(String);
         public virtual async Task<T> GetAsync<T>(string url)
         {
             try
@@ -36,11 +36,11 @@
                     using (HttpResponseMessage response = await client.GetAsync(uri, CancellationToken.None))
                     {
                         string json = await response.Content.ReadAsStringAsync();
-                        //if (typeof(T) == StringType)
-                        //{
-                        //    object temp = json;
-                        //    return (T)temp;
-                        //}
+                        if (typeof(T) == StringType)
+                        {
+                            object temp = json;
+                            return (T)temp;
+                        }
                         return String.IsNullOrEmpty(json) ? default(T) : JsonConvert.DeserializeObject<T>(json, _jsonSerializerSettings);
                     }
                 }
@@ -68,7 +68,12 @@
                     using (HttpResponseMessage response = await client.PostAsync(uri, content, CancellationToken.None))
                     {
                         string json = await response.Content.ReadAsStringAsync();
-                        return String.IsNullOrEmpty(json) ? default(T) : JsonConvert.DeserializeObject<T>(json);
+                        if (typeof(T) == StringType)
+                        {
+                            object temp = json;
+                            return (T)temp;
+                        }
+                        return String.IsNullOrEmpty(json) ? default(T) : JsonConvert.DeserializeObject<T>(json, _jsonSerializerSettings);
                     }
                 }
             }
