@@ -13,6 +13,24 @@
     {
         static async Task Main(string[] args) 
         {
+            await  OpenvasTest();
+        }
+
+
+        static async Task OpenvasTest()
+        {
+            string json = "";
+            using (Kamaji.Worker.IWorker worker = new OpenvasWorker.Worker())
+            {
+                var result = await worker.Run(ConsoleObserver.Instance, "f0a098e5-f8a4-43de-8176-bb823f7c0c06", null, "http://192.168.0.31:3000");
+                json = JsonConvert.SerializeObject(result.Result);
+            }
+
+            Console.WriteLine(json);
+        }
+
+        static async Task NmapTest()
+        {
             string json = "";
             using (Kamaji.Worker.IWorker worker = new NmapWorker.Worker())
             {
@@ -22,7 +40,6 @@
 
             Console.WriteLine(json);
         }
-
 
         //static async Task DollarsTest()
         //{

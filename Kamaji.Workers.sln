@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenvasOmpClient", "Openvas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenvasOmpClientTests", "OpenvasOmpClientTests\OpenvasOmpClientTests.csproj", "{300B2FD0-C0B3-4C33-81A7-0118E85C3328}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenvasWorker", "OpenvasWorker\OpenvasWorker.csproj", "{E04A31CD-74A1-4A0E-8020-483CA0784E63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{300B2FD0-C0B3-4C33-81A7-0118E85C3328}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{300B2FD0-C0B3-4C33-81A7-0118E85C3328}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{300B2FD0-C0B3-4C33-81A7-0118E85C3328}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E04A31CD-74A1-4A0E-8020-483CA0784E63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E04A31CD-74A1-4A0E-8020-483CA0784E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E04A31CD-74A1-4A0E-8020-483CA0784E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E04A31CD-74A1-4A0E-8020-483CA0784E63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -101,6 +107,7 @@ Global
 		{92CA8B72-C540-4ABE-8C1B-1F71410E79BF} = {FBDC1CD1-8F6E-472A-9E3F-2716B99221FF}
 		{F58DC589-264B-4C6E-AB4A-CB3F316F318D} = {A95F490A-E42E-4D1A-B420-502DF28ED79D}
 		{300B2FD0-C0B3-4C33-81A7-0118E85C3328} = {A95F490A-E42E-4D1A-B420-502DF28ED79D}
+		{E04A31CD-74A1-4A0E-8020-483CA0784E63} = {A95F490A-E42E-4D1A-B420-502DF28ED79D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8D35DD1C-A58E-433A-80DE-38055D7EF8F4}

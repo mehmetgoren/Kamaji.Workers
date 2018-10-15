@@ -48,9 +48,9 @@ namespace OpenvasOmpClientTests
         public async Task GetReportsTest()
         {
             OpenvasApi api = new OpenvasApi(Address);
-            GetReportsResponse reports = await api.GetReports(new GetReportsRequest {ReportId = "4e1adb68-a2f7-409a-8393-926e9c8c7821" });
+            GetReportsResponse reports = await api.GetReports(new GetReportsRequest());// {ReportId = "4e1adb68-a2f7-409a-8393-926e9c8c7821" });
             Assert.IsNotNull(reports.Results);
-            //string j = JsonConvert.SerializeObject(reports);
+            string j = JsonConvert.SerializeObject(reports);
         }
 
         [TestMethod]

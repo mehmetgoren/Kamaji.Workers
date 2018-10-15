@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Dollars\Dollars.csproj" />
     <ProjectReference Include="..\NmapWorker\NmapWorker.csproj" />
+    <ProjectReference Include="..\OpenvasWorker\OpenvasWorker.csproj" />
     <ProjectReference Include="..\ProcessMonitoringWorker\ProcessMonitoringWorker.csproj" />
     <ProjectReference Include="..\PuppeteerWorker\PuppeteerWorker.csproj" />
     <ProjectReference Include="..\WebPageHtmlSourceWorker\WebPageHtmlSourceWorker.csproj" />
