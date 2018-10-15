@@ -24,50 +24,50 @@
         }
 
 
-        static async Task DollarsTest()
-        {
-            //using (Kamaji.Worker.IWorker worker = new WebPageLinksWorker.Worker())
-            //{
-            //    await worker.SetupEnvironment();
+        //static async Task DollarsTest()
+        //{
+        //    //using (Kamaji.Worker.IWorker worker = new WebPageLinksWorker.Worker())
+        //    //{
+        //    //    await worker.SetupEnvironment();
 
-            //    var html = await worker.Run(ConsoleObserver.Instance, "http://www.cursedhardware.com/", null, null);
+        //    //    var html = await worker.Run(ConsoleObserver.Instance, "http://www.cursedhardware.com/", null, null);
 
-            //    Console.WriteLine(JsonConvert.SerializeObject(html.Result));
+        //    //    Console.WriteLine(JsonConvert.SerializeObject(html.Result));
 
-            //    Console.ReadKey();
-            //}
+        //    //    Console.ReadKey();
+        //    //}
 
-            CancellationTokenSource t = new CancellationTokenSource();
+        //    CancellationTokenSource t = new CancellationTokenSource();
 
 
-            _ = Task.Run(async () =>
-            {
-                using (Kamaji.Worker.IWorker worker = new Dollars.Worker())
-                {
-                    await worker.SetupEnvironment();
-                    while (true)
-                    {
-                        var result = await worker.Run(ConsoleObserver.Instance, null, null, null);
+        //    _ = Task.Run(async () =>
+        //    {
+        //        using (Kamaji.Worker.IWorker worker = new Dollars.Worker())
+        //        {
+        //            await worker.SetupEnvironment();
+        //            while (true)
+        //            {
+        //                var result = await worker.Run(ConsoleObserver.Instance, null, null, null);
 
-                        IEnumerable<object> list = result.Result as IEnumerable<object>;
-                        if (null != list)
-                            (new List<object>(list)).ForEach(i => Console.WriteLine(JsonConvert.SerializeObject(i)));
-                        else
-                            Console.WriteLine(result.Result);
+        //                IEnumerable<object> list = result.Result as IEnumerable<object>;
+        //                if (null != list)
+        //                    (new List<object>(list)).ForEach(i => Console.WriteLine(JsonConvert.SerializeObject(i)));
+        //                else
+        //                    Console.WriteLine(result.Result);
 
-                        await Task.Delay(5000);
+        //                await Task.Delay(5000);
 
-                        if (t.IsCancellationRequested)
-                            break;
-                    }
-                }
-            });
+        //                if (t.IsCancellationRequested)
+        //                    break;
+        //            }
+        //        }
+        //    });
 
-            Console.ReadKey();
-            t.Cancel();
-            Console.WriteLine("Kapandı");
-            Console.ReadKey();
-        }
+        //    Console.ReadKey();
+        //    t.Cancel();
+        //    Console.WriteLine("Kapandı");
+        //    Console.ReadKey();
+        //}
 
 
         //static async Task ProcessMonitoringTest()
