@@ -1,8 +1,8 @@
-﻿namespace OpenvasOmpClientTests
+﻿namespace Openvas.Omp.ClientTests
 {
-    using OpenvasOmpClient.Models;
+    using Openvas.Omp.Client.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using OpenvasOmpClient;
+    using Openvas.Omp.Client;
     using System.Threading.Tasks;
 
     partial class OmpTests

@@ -1,9 +1,9 @@
-namespace OpenvasOmpClientTests
+namespace Openvas.Omp.ClientTests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Newtonsoft.Json;
-    using OpenvasOmpClient;
-    using OpenvasOmpClient.Models;
+    using Openvas.Omp.Client;
+    using Openvas.Omp.Client.Models;
     using System.Threading.Tasks;
 
     [TestClass]
@@ -59,7 +59,7 @@ namespace OpenvasOmpClientTests
             OpenvasApi api = new OpenvasApi(Address);
             GetResultsResponse results = await api.GetResults(new GetResultsRequest {TaskId = "f0a098e5-f8a4-43de-8176-bb823f7c0c06"});
             Assert.IsNotNull(results.Results);
-            //string j = JsonConvert.SerializeObject(results);
+            string j = JsonConvert.SerializeObject(results);
         }
 
         [TestMethod]

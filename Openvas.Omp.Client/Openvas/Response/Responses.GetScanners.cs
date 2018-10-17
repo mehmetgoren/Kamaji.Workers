@@ -1,10 +1,10 @@
-﻿namespace OpenvasOmpClient
+﻿namespace Openvas.Omp.Client
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using Newtonsoft.Json;
-    using OpenvasOmpClient.Models;
+    using Openvas.Omp.Client.Models;
 
 
     partial class Responses

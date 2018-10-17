@@ -5,8 +5,8 @@
     using System.Threading.Tasks;
     using Kamaji.Worker;
     using Newtonsoft.Json.Linq;
-    using OpenvasOmpClient;
-    using OpenvasOmpClient.Models;
+    using Openvas.Omp.Client;
+    using Openvas.Omp.Client.Models;
 
     public sealed class Worker : WorkerBase
     {

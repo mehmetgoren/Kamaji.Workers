@@ -29,11 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NmapWorker", "NmapWorker\Nm
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Openvas", "Openvas", "{A95F490A-E42E-4D1A-B420-502DF28ED79D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenvasOmpClient", "OpenvasOmpClient\OpenvasOmpClient.csproj", "{F58DC589-264B-4C6E-AB4A-CB3F316F318D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openvas.Omp.Client", "Openvas.Omp.Client\Openvas.Omp.Client.csproj", "{F58DC589-264B-4C6E-AB4A-CB3F316F318D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenvasOmpClientTests", "OpenvasOmpClientTests\OpenvasOmpClientTests.csproj", "{300B2FD0-C0B3-4C33-81A7-0118E85C3328}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openvas.Omp.ClientTests", "Openvas.Omp.ClientTests\Openvas.Omp.ClientTests.csproj", "{300B2FD0-C0B3-4C33-81A7-0118E85C3328}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenvasWorker", "OpenvasWorker\OpenvasWorker.csproj", "{E04A31CD-74A1-4A0E-8020-483CA0784E63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenvasWorker", "OpenvasWorker\OpenvasWorker.csproj", "{E04A31CD-74A1-4A0E-8020-483CA0784E63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

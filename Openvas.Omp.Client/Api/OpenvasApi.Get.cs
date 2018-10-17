@@ -1,6 +1,6 @@
-﻿namespace OpenvasOmpClient
+﻿namespace Openvas.Omp.Client
 {
-    using OpenvasOmpClient.Models;
+    using Openvas.Omp.Client.Models;
     using System;
     using System.Linq;
     using System.Reflection;

@@ -1,4 +1,4 @@
-﻿namespace OpenvasOmpClient
+﻿namespace Openvas.Omp.Client
 {
     using Newtonsoft.Json;
     using System;

@@ -1,4 +1,4 @@
-﻿namespace OpenvasOmpClient.Models
+﻿namespace Openvas.Omp.Client.Models
 {
     using System;
 

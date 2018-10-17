@@ -1,4 +1,4 @@
-﻿namespace OpenvasOmpClient
+﻿namespace Openvas.Omp.Client
 {
     using System.Xml.Serialization;
 

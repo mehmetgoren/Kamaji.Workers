@@ -1,7 +1,7 @@
-﻿namespace OpenvasOmpClient
+﻿namespace Openvas.Omp.Client
 {
     using System.Threading.Tasks;
-    using OpenvasOmpClient.Models;
+    using Openvas.Omp.Client.Models;
 
     partial class OpenvasApi
     {

@@ -1,7 +1,7 @@
-﻿namespace OpenvasOmpClient
+﻿namespace Openvas.Omp.Client
 {
     using Newtonsoft.Json;
-    using OpenvasOmpClient.Models;
+    using Openvas.Omp.Client.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
