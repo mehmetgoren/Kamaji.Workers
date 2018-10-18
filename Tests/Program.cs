@@ -6,6 +6,7 @@
     using System.Threading.Tasks;
     using System.Diagnostics;
     using System.Collections.Generic;
+    using System.Dynamic;
     using System.Linq;
     using System.Threading;
 
@@ -13,9 +14,23 @@
     {
         static async Task Main(string[] args) 
         {
-            await  OpenvasTest();
+            await ArachniTest();
         }
 
+
+        static async Task ArachniTest()
+        {
+            string json = "";
+            using (Kamaji.Worker.IWorker worker = new ArachniWorker.Worker())
+            {
+                dynamic dyn = new ExpandoObject();
+                dyn.arachniRestApiAddress = "http://192.168.0.31:3001";
+                var result = await worker.Run(ConsoleObserver.Instance, "http://testhtml5.vulnweb.com", null, dyn);
+                json = JsonConvert.SerializeObject(result.Result);
+            }
+
+            Console.WriteLine(json);
+        }
 
         static async Task OpenvasTest()
         {

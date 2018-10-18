@@ -18,6 +18,9 @@
 
         protected override async Task<object> Run_Internal(IObserver observer, string asset, IScanRepository repository, object args)
         {
+            if (String.IsNullOrEmpty(asset) || args == null)
+                return null;
+
             string address = args?.ToString();
             OpenvasApi api = new OpenvasApi(address);
 

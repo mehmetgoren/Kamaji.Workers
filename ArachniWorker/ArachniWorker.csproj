@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Arachni.RestApi.Client\Arachni.RestApi.Client.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Kamaji.Worker">
+      <HintPath>..\..\Kamaji\builds\netstandard2.0\Kamaji.Worker.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
