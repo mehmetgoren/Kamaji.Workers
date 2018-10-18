@@ -208,7 +208,7 @@
         public sealed class Response
         {
             [JsonProperty("headers")]
-            public Dictionary<string, string> Headers { get; set; }
+            public Dictionary<string, object> Headers { get; set; }
 
             [JsonProperty("url")]
             public string Url { get; set; }

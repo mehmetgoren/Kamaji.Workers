@@ -25,7 +25,7 @@
             {
                 dynamic dyn = new ExpandoObject();
                 dyn.arachniRestApiAddress = "http://192.168.0.31:3001";
-                var result = await worker.Run(ConsoleObserver.Instance, "http://testhtml5.vulnweb.com", null, dyn);
+                var result = await worker.Run(ConsoleObserver.Instance, "https://www.donanimhaber.com/", null, dyn);
                 json = JsonConvert.SerializeObject(result.Result);
             }
 
