@@ -1,0 +1,47 @@
+Kali' ye nodejs kurulumu;
+	curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+	sudo apt install -y nodejs
+
+
+- Openvas Kurulumu.
+	Bunun için en iyi os Kali direk repository' si var.
+	https://www.hackingtutorials.org/scanning-tutorials/installing-openvas-kali-linux/
+	
+		
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo reboot
+	
+	apt-get install openvas
+	openvas-setup
+	
+	sudo greenbone-nvt-sync
+	sudo greenbone-scapdata-sync
+	sudo greenbone-certdata-sync
+	
+	openvas-start
+	https://127.0.0.1:9392
+	Bu arada şifre de veriyor,i onu da almayı ve bir kenera yazmayı unutma.
+	
+	
+- Arachni kurulumu. 
+	* Linux için .tar.gz dosyasını indir ve "tar -zxvf {dosya_adi}" ile dosyayı folder a çıkar
+	oluşan folder' a cd ile navigate et.
+	* ls ile dosyaları listeleyip
+	'./arachni_web' ile arayüzü, user=admin@admin.admin, password=administrator
+	'arachni_rest_server' ile rest api' yi aç.
+	
+	
+	
+- Owasp Zap Api Kurulumu (Kali);
+	* sudo apt-get update
+	* sudo apt-get install openjdk-11-jdk
+	* java -version ile kontrol et
+	* ZAP_2_7_0_unix.sh dosyasını owasp sitesinden ündir.
+	* chmod o+x ZAP_2_7_0_unix.sh
+	* ls -lah
+	* ./ZAP_2_7_0_unix.sh ile installer' ı çalıştır.
+	* Tools -> Options -> API -> Add .* enanle regex
+	* Tools -> Options -> Local Proxies -> Adress -> localhost yerine 192.168.0.31 yaz örneğin ki allow remote access olsun.
+
+- Nikto Kali de kendisi geliyor.	
