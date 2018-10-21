@@ -14,7 +14,7 @@ namespace Arachni.RestApi.ClientTests
     {
         private const string Address = "http://192.168.0.31:3001";
 
-        private static string id = "77319420bbea96831236b72c373b8181";
+        private static string id = "580226272bc85883d1cdae6fbd683f39";
 
         [TestMethod]
         public async Task NewScanTest()
@@ -83,7 +83,7 @@ namespace Arachni.RestApi.ClientTests
         public async Task DeleteScanTest()
         {
             ArachniApi api = new ArachniApi(Address);
-            bool result = await api.DeleteScan("3e7ab3d000ca4ccaafa9cf1f90025e25");
+            bool result = await api.DeleteScan(id);
             Assert.IsNotNull(result);
         }
     }

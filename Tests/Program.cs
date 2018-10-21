@@ -14,9 +14,25 @@
     {
         static async Task Main(string[] args) 
         {
-            await ArachniTest();
+            await OwaspTest();
         }
 
+
+        static async Task OwaspTest()
+        {
+            string json = "";
+            using (Kamaji.Worker.IWorker worker = new OwaspWorker.Worker())
+            {
+                dynamic dyn = new ExpandoObject();
+                dyn.owaspIp = "192.168.0.31";
+                dyn.owaspPort = "8080";
+                var result = await worker.Run(ConsoleObserver.Instance, "http://testhtml5.vulnweb.com", null, dyn);
+                json = JsonConvert.SerializeObject(result.Result);
+            }
+
+            Console.WriteLine(json);
+        }
+        
 
         static async Task ArachniTest()
         {
