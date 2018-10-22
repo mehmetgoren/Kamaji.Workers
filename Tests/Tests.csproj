@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ArachniWorker\ArachniWorker.csproj" />
     <ProjectReference Include="..\Dollars\Dollars.csproj" />
+    <ProjectReference Include="..\NiktoWorker\NiktoWorker.csproj" />
     <ProjectReference Include="..\NmapWorker\NmapWorker.csproj" />
     <ProjectReference Include="..\OpenvasWorker\OpenvasWorker.csproj" />
     <ProjectReference Include="..\OwaspWorker\OwaspWorker.csproj" />

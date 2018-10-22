@@ -14,9 +14,23 @@
     {
         static async Task Main(string[] args) 
         {
-            await OwaspTest();
+            await NiktoTest();
         }
 
+
+        static async Task NiktoTest()
+        {
+            string json = "";
+            using (Kamaji.Worker.IWorker worker = new NiktoWorker.Worker())
+            {
+                dynamic dyn = new ExpandoObject();
+                dyn.niktoRestApiAddress = "http://192.168.0.31:3002";
+                var result = await worker.Run(ConsoleObserver.Instance, "https://www.donanimhaber.com/", null, dyn);
+                json = JsonConvert.SerializeObject(result.Result);
+            }
+
+            Console.WriteLine(json);
+        }
 
         static async Task OwaspTest()
         {
