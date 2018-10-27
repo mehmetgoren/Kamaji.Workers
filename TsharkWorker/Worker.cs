@@ -57,7 +57,7 @@
 
         private static async Task StartListingNetworkDevice(string fileTemplate, string deviceId, string tsharkPath, int duration)
         {
-            string args = $"-i {deviceId} -w {fileTemplate}.pcap -b duration:{duration} -T fields -e frame.number -e frame.time -e eth.src -e eth.dst -e ip.src -e ip.dst -e ip.proto -E header=y -E separator=, -E quote=d -E occurrence=f";
+            string args = $"-i {deviceId} -w {fileTemplate}.pcap -b duration:{duration} -T fields -e frame.number -e frame.time -e eth.src -e eth.dst -e ip.src -e ip.dst -e ip.proto -e frame.len -E header=y -E separator=, -E quote=d -E occurrence=f";
             var startInfo = new ProcessStartInfo
             {
                 FileName = tsharkPath,
@@ -90,7 +90,7 @@
 
                 foreach (string filePath in filePaths)
                 {
-                    string args = $"-r {filePath} -T fields -e frame.number -e frame.time -e eth.src -e eth.dst -e ip.src -e ip.dst -e ip.proto -E header=y -E separator=; -E quote=d -E occurrence=f"; //$" -r {filePath} -T fields -e frame.number -e frame.time -e eth.src -e eth.dst -e ip.src -e ip.dst -e ip.proto -E header=y -E separator=, -E quote=d -E occurrence=f > {csvFileName}";
+                    string args = $"-r {filePath} -T fields -e frame.number -e frame.time -e eth.src -e eth.dst -e ip.src -e ip.dst -e ip.proto -e frame.len -E header=y -E separator=; -E quote=d -E occurrence=f"; //$" -r {filePath} -T fields -e frame.number -e frame.time -e eth.src -e eth.dst -e ip.src -e ip.dst -e ip.proto -E header=y -E separator=, -E quote=d -E occurrence=f > {csvFileName}";
                     var startInfo = new ProcessStartInfo
                     {
                         FileName = tsharkPath,

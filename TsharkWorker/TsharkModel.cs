@@ -47,5 +47,6 @@
         public string IpSrc { get; set; }
         public string IpDst { get; set; }
         public string IpProto { get; set; }
+        public string FrameLen { get; set; }
     }
 }
