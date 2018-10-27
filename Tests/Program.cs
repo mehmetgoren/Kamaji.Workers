@@ -4,19 +4,37 @@
     using Newtonsoft.Json;
     using System.IO;
     using System.Threading.Tasks;
-    using System.Diagnostics;
     using System.Collections.Generic;
     using System.Dynamic;
-    using System.Linq;
-    using System.Threading;
+
 
     static class Program
     {
         static async Task Main(string[] args) 
         {
-            await NiktoTest();
+            await TsharkTest();
         }
 
+
+        static async Task TsharkTest()
+        {
+            using (Kamaji.Worker.IWorker worker = new TsharkWorker.Worker())
+            {
+                dynamic dyn = new ExpandoObject();
+                dyn.fileTemplate = "f:\\tshark";
+                dyn.tsharkPath = @"C:\Program Files\Wireshark\tshark";
+                dyn.duration = "13";
+
+                while (true)
+                {
+                    var result = (List<TsharkWorker.TsharkModel>) (await worker.Run(ConsoleObserver.Instance, "2", null, dyn)).Result;
+
+                    if (result.Count > 0)
+                        await File.WriteAllTextAsync($"f:\\{DateTime.Now.Ticks}.json", JsonConvert.SerializeObject(result));
+                    await Task.Delay(5000);
+                }
+            }
+        }
 
         static async Task NiktoTest()
         {

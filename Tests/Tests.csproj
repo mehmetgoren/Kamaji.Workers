@@ -19,6 +19,7 @@
     <ProjectReference Include="..\OwaspWorker\OwaspWorker.csproj" />
     <ProjectReference Include="..\ProcessMonitoringWorker\ProcessMonitoringWorker.csproj" />
     <ProjectReference Include="..\PuppeteerWorker\PuppeteerWorker.csproj" />
+    <ProjectReference Include="..\TsharkWorker\TsharkWorker.csproj" />
     <ProjectReference Include="..\WebPageHtmlSourceWorker\WebPageHtmlSourceWorker.csproj" />
     <ProjectReference Include="..\WebPageLinksWorker\WebPageLinksWorker.csproj" />
     <ProjectReference Include="..\WebPageScreenshotWorker\WebPageScreenshotWorker.csproj" />
