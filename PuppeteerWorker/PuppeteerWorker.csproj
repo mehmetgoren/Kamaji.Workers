@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="nodejs_app\node_modules\**" />
+    <EmbeddedResource Remove="nodejs_app\node_modules\**" />
+    <None Remove="nodejs_app\node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 
