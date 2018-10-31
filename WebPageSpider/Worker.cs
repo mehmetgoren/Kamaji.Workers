@@ -17,9 +17,6 @@
 
            // asset = CleanURL(asset);
 
-            if (String.IsNullOrWhiteSpace(asset))
-                return new List<string>();
-
             HashSet<string> temp = await http.GetAsync<HashSet<string>>($"getAllLinks?site={asset}");
             if (null == temp)
                 return new List<string>();

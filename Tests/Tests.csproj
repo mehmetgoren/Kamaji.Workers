@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ArachniWorker\ArachniWorker.csproj" />
+    <ProjectReference Include="..\AutoHostDiscoveryWorker\AutoHostDiscoveryWorker.csproj" />
     <ProjectReference Include="..\Dollars\Dollars.csproj" />
     <ProjectReference Include="..\NiktoWorker\NiktoWorker.csproj" />
     <ProjectReference Include="..\NmapWorker\NmapWorker.csproj" />
